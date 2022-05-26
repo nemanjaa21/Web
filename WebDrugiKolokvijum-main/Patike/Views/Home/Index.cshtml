@@ -1,0 +1,51 @@
+﻿@using Patike.Models;
+@model IEnumerable<Patika>
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+<head>
+    <style>
+        table, tr, th, td
+        {
+            border: 1px solid black;
+            align-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="" method="post">
+        <table>
+            <tr>
+                <th colspan="6">Patike</th>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <th>Naziv</th>
+                <th>Cena</th>
+                <th>Velicina</th>
+                <th>Brend</th>
+                <th>Na akciji?</th>
+
+            </tr>
+            @foreach (Patika patika in Model)
+            {
+                <tr>
+                    <td>@patika.Id</td>
+                    <td>@patika.Naziv</td>
+                    <td>@patika.Cena</td>
+                    <td>@patika.Velicina</td>
+                    <td>@patika.Brend</td>
+                    <td>@patika.Akcija</td>
+                </tr>
+            }
+        </table>
+    </form>
+    <br />
+    @Html.ActionLink("Nazad", "Index", "Unos");
+
+
+</body>
+
+

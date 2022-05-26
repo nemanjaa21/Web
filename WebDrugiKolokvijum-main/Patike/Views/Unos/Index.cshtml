@@ -1,0 +1,74 @@
+﻿@using Patike.Models;
+@model IEnumerable<Patika>
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+<body>
+    <h1 style="color:red">Unos novih patika</h1>
+    <form action="~/Unos/Unesi" method="post">
+        <table>
+            <tr>
+                <td>Id:</td>
+                <td><input type="text" name="Id"/></td>
+            </tr>
+            <tr>
+                <td>Naziv:</td>
+                <td><input type="text" name="Naziv"/></td>
+            </tr>
+            <tr>
+                <td>Cena:</td>
+                <td><input type="text" name="Cena"/></td>
+            </tr>
+            <tr>
+                <td>Velicina:</td>
+                <td><input type="text" name="Velicina" /></td>
+            </tr>
+            <tr>
+                <td>Brend:</td>
+                <td>
+                    <select name="Brend">
+                        <option value="Puma">Puma</option>
+                        <option value="Adidas">Adidas</option>
+                        <option value="Nike">Nike</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Na akciji?</td>
+                <td>
+                    <input type="checkbox" name="NaAkciji"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                   <input type="submit" value="Dodaj"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+     <form action="~/Home/Filter" method="post">
+         <table>
+             <tr>
+                 <td colspan="2"><h2 style="color:red">Pretraga</h2></td>
+                 
+             </tr>
+             <tr>
+                 <td>
+                     Brend:
+                     <select name="Brend">
+                         <option value="Puma">Puma</option>
+                         <option value="Adidas">Adidas</option>
+                         <option value="Nike">Nike</option>
+                     </select>
+                 
+                 </td>
+                 <td>
+                     <input style="background-color:indianred"type="submit" value="Pretraži"/>
+                 </td>
+             </tr>
+         </table>
+    </form>
+</body>
+
+

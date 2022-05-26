@@ -1,0 +1,49 @@
+﻿@using Klubovi.Models
+@{
+    ViewBag.Title = "Index";
+    Klub klub = ViewBag.Klub;
+    string aktivan = klub.Aktivan == true ? "checked" : "";
+}
+
+<h1 style="color: green;">Izmena podataka</h1>
+
+<form action="~/Edit/DoEdit" method="post">
+    <table>
+        <tr>
+            <td>Naziv: </td>
+            <td> <input type="text" name="naziv" value="@klub.Naziv" /></td>
+        </tr>
+        <tr>
+            <td>Grad: </td>
+            <td>
+                <select name="grad">
+                    <option value="@klub.Grad">@klub.Grad</option>
+                    <option value="Novi Sad">Novi Sad</option>
+                    <option value="Beograd">Beograd</option>
+                    <option value="Srbobran">Srbobran</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Aktivan:
+            </td>
+            <td>
+                <input type="checkbox" name="check" @aktivan/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="hidden" name="id" value="@klub.Id"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="hidden" name="bodovi" value="@klub.Bodovi" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"> <input type="submit" value="Izmeni" /></td>
+        </tr>
+    </table>
+</form>

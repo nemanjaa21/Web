@@ -1,0 +1,13 @@
+﻿@using Klubovi.Models
+@{
+    ViewBag.Title = "Index";
+    Klub klub = ViewBag.Klub;
+}
+
+<h1>Trenutno vodeci klub je: <b>@klub.Naziv @klub.Grad</b></h1>
+
+<br />
+@Html.ActionLink("Dodaj novi klub", "Index", "Register");
+<br />
+@Html.ActionLink("Home", "Index", "Home");
+

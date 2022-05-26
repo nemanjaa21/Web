@@ -1,0 +1,34 @@
+﻿@using WebShop.Models
+@model IEnumerable<User>
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    table, th, td, tr{
+        border: 1px solid black;
+        text-align: center;
+    }
+
+</style>
+
+<h2>Users</h2>
+
+<table>
+    <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Role</th>
+        <th>Action</th>
+    </tr>
+    @foreach (User user in Model)
+    {
+        <tr>
+            <td>@user.Username</td>
+            <td>@user.Password</td>
+            <td>@user.Role</td>
+            <td> <a href="~/Administrator/Remove?username=@user.Username">Remove</a></td>
+        </tr>
+    }
+</table>
+

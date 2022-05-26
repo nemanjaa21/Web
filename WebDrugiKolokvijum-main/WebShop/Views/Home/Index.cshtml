@@ -1,0 +1,52 @@
+﻿@using WebShop.Models
+@model IEnumerable<Product>
+@{
+    ViewBag.Title = "Index";
+    User user = ViewBag.User;
+}
+
+<style>
+    table, th, td, tr {
+        border: 1px solid black;
+        text-align: center;
+    }
+</style>
+
+<h2>Products</h2>
+
+<p>Hello, @user.Username!</p>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Count</th>
+    </tr>
+    @foreach (Product product in Model)
+    {
+        <tr>
+            <td>@product.Name</td>
+            <td>@product.Price</td>
+            <td>
+                <form action="~/Home/Add?name=@product.Name" method="post">
+                    <input type="number" name="Count" min="1" />
+                    <input type="submit" value="submit" />
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.ActionLink("Cart", "Index", "Cart");
+
+<br />
+
+@if (user.Role.Equals(Role.ADMINISTRATOR))
+{
+    @Html.ActionLink("Users", "Index", "Administrator");
+}
+
+@if (user.Role.Equals(Role.MODERATOR))
+{
+    @Html.ActionLink("Add new product", "Index", "Moderator");
+}

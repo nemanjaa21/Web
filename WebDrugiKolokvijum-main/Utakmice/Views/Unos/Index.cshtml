@@ -1,0 +1,102 @@
+﻿@using Utakmice.Models;
+@model IEnumerable<Utakmica>
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <form action="~/Unos/Unesi" method="post">
+        <table>
+            <tr>
+                <td colspan="2">
+                    <h1 style="color:blue">Unos nove utakmice</h1>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Id:</td>
+                <td><input type="text" name="Id" /></td>
+            </tr>
+            <tr>
+                <td>Domacin:</td>
+                <td><input type="text" name="Domacin"/></td>
+            </tr>
+            <tr>
+                <td>Gost:</td>
+                <td><input type="text" name="Gost"/></td>
+            </tr>
+            <tr>
+                <td>Pobednik:</td>
+                <td>
+                    <select name="Pobednik">
+                        <option value="Domacin">Domacin</option>
+                        <option value="Gost">Gost</option>
+                        <option value="Nereseno">Nereseno</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Liga:</td>
+                <td>
+                    <select name="Liga">
+                        <option value="Evropa">Evropa</option>
+                        <option value="Srbija">Srbija</option>
+                        <option value="Spanija">Spanija</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Dodaj"/></td>
+            </tr>
+
+        </table>
+    </form>
+
+
+    <form action="~/Home/Filter" method="post">
+        <table>
+            <tr>
+                <td colspan="3"><h2 style="color:blue">Pretraga</h2></td>
+            </tr>
+            <tr>
+                <td>Liga:</td>
+                <td>
+                    <select name="Liga">
+                        <option value="Evropa">Evropa</option>
+                        <option value="Srbija">Srbija</option>
+                        <option value="Spanija">Spanija</option>
+                    </select>
+                </td>
+                <td><input type="submit" value="Pretraga" style="color:blue" /></td>
+        </table>
+
+
+    </form>
+    <br/>
+
+    <form action="~/Home/Delete" method="post">
+
+        <table>
+            <tr>
+                <td colspan="3">
+                    <h2 style="color:blue">Brisanje utakmice</h2>
+                </td>
+            </tr>
+            <tr>
+               <td>Id:</td>
+                <td><input type="text" name="Id" /></td>
+                <td><input type="submit" value="Obrisi"/></td>
+            </tr>
+        </table>
+
+    </form>
+</body>
+</html>

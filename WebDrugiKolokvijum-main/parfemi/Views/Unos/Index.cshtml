@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<h1 style="color: pink;">Unos novog parfema</h1>
+
+<form action="~/Unos/Unesi" method="post">
+    <table>
+        <tr>
+            <td>Id: </td>
+            <td> <input type="text" name="Id" /></td>
+        </tr>
+        <tr>
+            <td>Naziv: </td>
+            <td> <input type="text" name="Naziv" /></td>
+        </tr>
+        <tr>
+            <td>Mirisna nota:</td>
+            <td>
+                <select name="Nota">
+                    <option value="Orijentalna">Orijentalna</option>
+                    <option value="Citrusna">Citrusna</option>
+                    <option value="Mošus">Mošus</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cena
+            </td>
+            <td>
+                <input type="text" name="Cena" />
+            </td>
+        </tr>
+        <tr>
+            <td>Na akciji?</td>
+            <td> <input type="checkbox" name="check" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Dodaj" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+<br />
+
+<h2 style="color: pink;">Pretraga</h2>
+<form action="~/Home/Filter" method="post">
+    <table>
+        <tr>
+            <td>Cena: </td>
+            <td>
+                <input type="text" name="cena" />
+            </td>
+            <td>
+                <input type="submit" value="Pretrazi" />
+            </td>
+        </tr>
+    </table>
+</form>
+

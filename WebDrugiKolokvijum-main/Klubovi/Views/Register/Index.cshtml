@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h1 style="color: red;">Unos novog kluba</h1>
+<p>@ViewBag.UserAgent</p>
+<form action="~/Register/Register" method="post">
+    <table>
+        <tr>
+            <td>Naziv: </td>
+            <td> <input type="text" name="naziv" required /></td>
+        </tr>
+        <tr>
+            <td>Grad: </td>
+            <td>
+                <select name="grad">
+                    <option value="Novi Sad">Novi Sad</option>
+                    <option value="Beograd">Beograd</option>
+                    <option value="Srbobran">Srbobran</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Aktivan:
+            </td>
+            <td>
+                <input type="checkbox" name="check" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"> <input type="submit" value="Dodaj" /></td>
+        </tr>
+    </table>
+</form>
+

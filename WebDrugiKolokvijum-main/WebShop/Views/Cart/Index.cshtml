@@ -1,0 +1,48 @@
+﻿@using WebShop.Models
+@model Dictionary<Product, int>
+@{
+    ViewBag.Title = "Index";
+    User user = ViewBag.User;
+}
+
+<style>
+    table, th, tr, td {
+        border: 1px solid black;
+        text-align: center;
+    }
+</style>
+
+<h2>Cart</h2>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Count</th>
+    </tr>
+    @{
+        double sum = 0;
+    }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Key.Name</td>
+            <td>@(item.Key.Price * item.Value)</td>
+            <td>@item.Value</td>
+        </tr>
+        {
+            sum += item.Key.Price * item.Value;
+        }
+    }
+    <tr>
+        <td>Total amount: </td>
+        <td colspan="2">@sum</td>
+    </tr>
+</table>
+
+@if (user.Role.Equals(Role.GUEST))
+{
+    @Html.ActionLink("Sort by count", "SortByCount", "Cart");
+    <br />
+    @Html.ActionLink("Sort by price", "SortByPrice", "Cart");
+}

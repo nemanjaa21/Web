@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Add new product</h2>
+
+<form action="~/Moderator/Add" method="post">
+    <table>
+        <tr>
+            <td>Name: </td>
+            <td> <input type="text" name="Name" /></td>
+        </tr>
+        <tr>
+            <td>Price: </td>
+            <td> <input type="text" name="Price" /></td>
+        </tr>
+        <tr>
+            <td rowspan="2">
+                <input type="submit"  value="Add" />
+            </td>
+        </tr>
+    </table>
+</form>

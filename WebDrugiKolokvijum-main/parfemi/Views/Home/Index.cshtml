@@ -1,0 +1,43 @@
+﻿@using parfemi.Models
+@model IEnumerable<Parfem> 
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<style>
+    table, th, td, tr
+    {
+        border: 1px solid black;
+        align-content: center;
+    }
+</style>
+
+<table>
+    <tr>
+        <th colspan="5">Parfemi</th>
+    </tr>
+    <tr>
+        <th>Id</th>
+        <th>Naziv</th>
+        <th>Mirisna nota</th>
+        <th>Cena</th>
+        <th>Na akciji?</th>
+    </tr>
+    @foreach (Parfem parfem in Model)
+    {
+        <tr>
+            <td>@parfem.Id</td>
+            <td>@parfem.Naziv</td>
+            <td>@parfem.Nota</td>
+            <td>@parfem.Cena</td>
+            @{ 
+                string akcija = @parfem.Akcija == true ? "Da" : "Ne";
+            }
+            <td>@akcija</td>
+        </tr>
+    }
+</table>
+<br />
+@Html.ActionLink("Nazad","Index","Unos");
+

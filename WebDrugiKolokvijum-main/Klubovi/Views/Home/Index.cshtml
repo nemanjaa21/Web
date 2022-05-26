@@ -1,0 +1,75 @@
+﻿@using Klubovi.Models
+@model IEnumerable<Klub>
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    table#unos, table#unos tr, table#unos th, table#unos td{
+        border: 1px solid black;
+        text-align: center;
+    }
+
+    h1 {
+        color: blue;
+    }
+
+</style>
+<h1>Tabela</h1>
+
+<table id="unos">
+    <tr>
+        <th>#</th>
+        <th>Klub</th>
+        <th>Bodovi</th>
+        <th>Akcije</th>
+    </tr>
+    @foreach (Klub klub in Model)
+    {
+        <tr>
+            <td>@klub.Id</td>
+            <td>@klub.Naziv @klub.Grad</td>
+            <td>@klub.Bodovi</td>
+            <td> <a href="~/Edit/EditSetup?id=@klub.Id">Izmena podataka</a></td>
+        </tr>
+    }
+</table>
+
+<br />
+@Html.ActionLink("Dodaj novi klub", "Index", "Register");
+<br />
+@Html.ActionLink("Prikazi vodeci klub", "Pronadji", "Vodeci");
+<br />
+<br>
+<h1>Upis bodova</h1>
+
+<form action="~/Bodovi/Upis" method="post">
+    <table>
+        <tr>
+            <td>Klub: </td>
+            <td>
+                <select name="id">
+                    @foreach (Klub klub in Model)
+                    {
+                        <option value="@klub.Id">@klub.Naziv @klub.Grad</option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Bodovi:
+            </td>
+            <td>
+                <input type="number" name="bodovi" value="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Unesi" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+

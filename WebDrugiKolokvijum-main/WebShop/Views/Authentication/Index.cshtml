@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Login</h2>
+
+<form action="~/Authentication/Login" method="post">
+    <table>
+        <tr>
+            <td>Username: </td>
+            <td> <input type="text" name="Username" /></td>
+        </tr>
+        <tr>
+            <td>Password: </td>
+            <td> <input type="password" name="Password" /></td>
+        </tr>
+        <tr> 
+            <td colspan="2">
+                <input type="submit" value="submit" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+<p>@ViewBag.Message</p>
+
