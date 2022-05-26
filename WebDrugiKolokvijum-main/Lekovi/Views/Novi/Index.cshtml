@@ -1,0 +1,49 @@
+﻿@using Lekovi.Models;
+@model IEnumerable<Lek>
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        table, tr, th, td {
+            border: 1px solid black;
+            align-content: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th colspan="6">Lekovi</th>
+        </tr>
+        <tr>
+            <th>Id</th>
+            <th>Naziv</th>
+            
+            <th>Godina</th>
+            <th>Vrsta leka</th>
+           
+        </tr>
+
+        @foreach (Lek l in Model)
+        {
+            <tr>
+                <td>@l.Id</td>
+                <td>@l.Naziv</td>
+                
+                <td>@l.Godina</td>
+                <td>@l.VrstaLeka</td>
+                
+            </tr>
+        }
+
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+﻿@using Lekovi.Models;
+@model IEnumerable<Lek>
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+</head>
+<body>
+    <form action="~/Unos/Unesi" method="post">
+        <table>
+            <tr>
+                <td colspan="2"><h1 style="color:green">Unos novih lekova</h1></td>
+            </tr>
+            <tr>
+                <td>Id:</td>
+                <td><input type="text" name="Id" /></td>
+
+            </tr>
+
+            <tr>
+                <td>Naziv:</td>
+                <td><input type="text" name="Naziv" /></td>
+
+            </tr>
+            <tr>
+                <td>Cena:</td>
+                <td><input type="number" name="Cena" /></td>
+
+            </tr>
+            <tr>
+                <td>Godina:</td>
+                <td><input type="text" name="Godina" /></td>
+
+            </tr>
+            <tr>
+                <td>Vrsta leka:</td>
+                <td>
+                    <select name="VrstaLeka">
+                        <option value="Prirodni">Prirodni</option>
+                        <option value="Laboratorijski">Laboratorijski</option>
+                        <option value="Placebo">Placebo</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Na akciji?</td>
+                <td> <input type="checkbox" name="NaAkciji"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Dodaj" style="color:green"/></td>
+            </tr>
+        </table>
+    </form>
+    <br/>
+    <form action="~/Home/Filter" method="post">
+        <table>
+            <tr>
+                <td colspan="3"><h2 style="color:green">Pretraga</h2></td>
+            </tr>
+            <tr>
+                <td>Cena:</td>
+                <td><input type="number" name="Cena" /></td>
+                <td><input type="submit" value="Pretrazi" style="color:green"/></td>
+            </tr>
+        </table>
+    </form>
+    <br/>
+
+    <form action="~/Home/Delete" method="post">
+        <table>
+            <tr>
+                <td colspan="3"><h2 style="color:green">Brisanje</h2></td>
+            </tr>
+            <tr>
+                <td>Id:</td>
+                <td><input type="text" name="Id" /></td>
+                <td><input type="submit" value="Obrisi" style="color:green"</td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
